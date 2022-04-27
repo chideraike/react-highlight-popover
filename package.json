@@ -16,9 +16,11 @@
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
+    "commit": "git-cz",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "semantic-release": "semantic-release --branches main"
+    "semantic-release": "semantic-release --branches main",
+    "acp": "git add . && npm run commit && git push"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -51,17 +53,23 @@
     "@size-limit/preset-small-lib": "^7.0.8",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.0",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^7.0.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "semantic-release": "^19.0.2",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.4.0",
-    "typescript": "^3.9.10",
-    "semantic-release": "^19.0.2"
+    "typescript": "^3.9.10"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/chideraike/react-highlight-popover.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
