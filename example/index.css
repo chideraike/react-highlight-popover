@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --shadow-color: 0deg 0% 0%;
+  --shadow-elevation-low: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.1),
+    0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.1),
+    1px 2px 2.5px -2.5px hsl(var(--shadow-color) / 0.1);
+  --shadow-elevation-medium: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.11),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.11),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.11),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.11);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(45deg, #85cb33, #a5cbc3);
+}
+
+.container {
+  display: flex;
+  place-content: center;
+  width: 100%;
+}
+
+.my-item {
+  background-color: aqua;
+  padding: 10;
+  border-radius: 10;
+}
+
+.my-text {
+  width: 50%;
+  padding: 30px;
+  border-radius: 20px;
+  background-image: linear-gradient(45deg, #f0d3f7, #efffc8);
+  box-shadow: var(--shadow-elevation-medium);
+}

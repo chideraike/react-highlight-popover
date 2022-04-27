@@ -1,0 +1,36 @@
+:root {
+  --shadow-color: 0deg 0% 54%;
+  --shadow-elevation: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+}
+
+.popover-container {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  transition: 0.3s top, 0.3s left;
+  z-index: 50;
+}
+
+.popover-item {
+  padding: 6px 10px;
+  background: #ddd;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-elevation);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #ddd;
+  }
+}
