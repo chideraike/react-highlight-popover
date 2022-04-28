@@ -8,8 +8,9 @@ const App = () => {
   return (
     <div>
       <HighlightableTextArea
-        XOffset={0}
-        YOffset={5}
+        xOffset={0}
+        yOffset={5}
+        zIndex={5}
         popoverItem={(text) => {
           console.log('text i got from popover - ', text);
           return (

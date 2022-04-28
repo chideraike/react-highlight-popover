@@ -50,13 +50,20 @@ export interface HighlightableTextAreaProps {
    * Positions the popover along the x-axis of the selected text.
    * @defaultValue 0
    */
-  XOffset?: number;
+  xOffset?: number;
 
   /**
    * Positions the popover along the y-axis of the selected text.
    * @defaultValue 10
    */
-  YOffset?: number;
+  yOffset?: number;
+
+  /**
+   * The `zIndex` property sets the z-order of the popover and its descendants or flex items.
+   * Overlapping elements with a larger z-index cover those with a smaller one.
+   * @defaultValue 10
+   */
+  zIndex?: number;
   children: React.ReactNode;
 }
 
@@ -67,8 +74,9 @@ export interface HighlightableTextAreaProps {
 export const HighlightableTextArea = ({
   popoverItem,
   onHighlightText,
-  XOffset = 0,
-  YOffset = 10,
+  xOffset = 0,
+  yOffset = 10,
+  zIndex = 10,
   children
 }: HighlightableTextAreaProps) => {
   const [x, setX] = React.useState<number>(0);
@@ -135,7 +143,7 @@ export const HighlightableTextArea = ({
     }
 
     setX(x + width / 2);
-    setY(y + window.scrollY - YOffset);
+    setY(y + window.scrollY - yOffset);
     setText(selectedText);
     setShowPopover(true);
 
@@ -147,7 +155,11 @@ export const HighlightableTextArea = ({
       {showPopover && (
         <div
           className='popover-container'
-          style={{ left: `${x + XOffset}px`, top: `${y}px` }}
+          style={{
+            left: `${x + xOffset}px`,
+            top: `${y}px`,
+            zIndex: zIndex
+          }}
           role="presentation"
           onMouseDown={e => e.preventDefault()}
         >
