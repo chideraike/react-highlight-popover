@@ -25,13 +25,16 @@ export interface HighlightableTextAreaProps {
    * @example
    * Here is how the format can be;
    *
-   * ```ts
-   * popoverItem={(text) => {
-   *  return (
-   *    <div>
-   *      <p>{text}</p>
-   *    </div>
-   * )}}
+   * ```js
+   * <HighlightableTextArea
+   *  popoverItem={(text) => {
+   *    return (
+   *      <div>
+   *        <p>{text}</p>
+   *      </div>
+   *  )}}
+   * >
+   * </HighlightableTextArea>
    * ```
    */
   popoverItem?: popoverItemCallback;
