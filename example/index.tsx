@@ -11,16 +11,16 @@ const App = () => {
         xOffset={0}
         yOffset={5}
         zIndex={5}
-        popoverItem={(text) => {
-          console.log('text i got from popover - ', text);
+        popoverItem={(text, state) => {
+          console.log('Text:- ', text);
           return (
-            <div className="my-item">
+            <div className="my-item" onClick={() => state(false)}>
               <p>{text}</p>
             </div>
           )
         }}
         onHighlightText={(e) => {
-          // console.log('highlighted text', e)
+          console.log('MouseEvent:- ', e)
         }}
       >
         <div className="container">

@@ -12,7 +12,17 @@
 import * as React from 'react';
 import './styles.scss';
 
-type popoverItemCallback = (text: string) => React.ReactNode;
+type popoverItemCallback = (
+  /**
+   * The text that is selected/highlighted.
+   */
+  HighlightedText: string,
+
+  /**
+   * Use this to change the state of the popover.
+   */
+  setPopoverState: React.Dispatch<React.SetStateAction<boolean>>
+) => React.ReactNode;
 type onHighlightTextCallback = (event: MouseEvent) => void;
 
 /**
@@ -21,26 +31,28 @@ type onHighlightTextCallback = (event: MouseEvent) => void;
 export interface HighlightableTextAreaProps {
   /**
    * The item to be rendered as popover when user has selected/highlighted text.
-   * It is a function that takes `text` as an argument and returns a react node.
    * @example
-   * Here is how the format can be;
+   * Here is how it can be implemented:
    *
    * ```js
    * <HighlightableTextArea
-   *  popoverItem={(text) => {
-   *    return (
-   *      <div>
-   *        <p>{text}</p>
-   *      </div>
-   *  )}}
+   *    popoverItem={(HighlightedText, setPopoverState) => {
+   *      return (
+   *        <div onClick={() => setPopoverState(false)}>
+   *          <p>{HighlightedText}</p>
+   *        </div>
+   *    )}}
    * >
    * </HighlightableTextArea>
    * ```
+   * @param HighlightedText - The text that is selected/highlighted.
+   * @param setPopoverState - Set to `false` to hide the popover.
+   * @returns A react node.
    */
   popoverItem?: popoverItemCallback;
 
   /**
-   * This event is fired whenever user has selected/highlighted text.
+   * This event is fired after the popover renders.
    * It is a callback function that takes `event` as an argument.
    * @eventProperty
    */
@@ -164,7 +176,7 @@ export const HighlightableTextArea = ({
           onMouseDown={e => e.preventDefault()}
         >
           {popoverItem ? (
-            popoverItem(text)
+            popoverItem(text, setShowPopover)
           ) : (
             <div className="popover-item">
               <span role="button">
