@@ -1,5 +1,5 @@
-# React Highlight Popover Example
+# Example Implementation
 
-example code on how to implement it
+Example code on how to implement it
 
 open [index.tsx](https://github.com/chideraike/react-highlight-popover/blob/main/example/index.tsx) to learn more

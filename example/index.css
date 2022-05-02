@@ -32,7 +32,8 @@ body {
 }
 
 .my-item {
-  background-color: aqua;
+  background-color: #0a0908;
+  color: #f2f4f3;
   padding: 10;
   border-radius: 10;
 }
