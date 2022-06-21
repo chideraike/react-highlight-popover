@@ -81,7 +81,7 @@ export interface HighlightableTextAreaProps {
 
 /**
  * Defines the area in which selected/highlighted text will render a popover.
- * @public
+ * @public ❤️ from Nigeria
  */
 export const HighlightableTextArea = ({
   popoverItem,
